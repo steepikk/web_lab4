@@ -42,17 +42,14 @@ public class PointService {
     }
 
     private boolean checkHit(double x, double y, double r) {
-        // Rectangle in second quadrant
         if (x <= 0 && x >= -r/2 && y >= 0 && y <= r) {
             return true;
         }
 
-        // Triangle in third quadrant
         if (x <= 0 && y <= 0 && y >= -x - r) {
             return true;
         }
 
-        // Quarter circle in first quadrant
         if (x >= 0 && y >= 0 && (x*x + y*y) <= (r*r/4)) {
             return true;
         }
