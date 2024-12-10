@@ -46,8 +46,6 @@ public class PointService {
             return true;
         }
 
-
-
         if (x <= 0 && y <= 0 && y >= -x - r) {
             return true;
         }
