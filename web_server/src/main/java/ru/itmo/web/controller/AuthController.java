@@ -2,6 +2,8 @@ package ru.itmo.web.controller;
 
 
 import lombok.Data;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,6 +20,7 @@ import ru.itmo.web.service.UserService;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
+    private static final Logger logger = LogManager.getLogger(AuthController.class);
 
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider tokenProvider;
@@ -33,6 +36,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        logger.info("The server accepts the user!");
+
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getUsername(),
@@ -48,6 +53,8 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest registerRequest) {
+        logger.info("The server is creating a user!");
+
         User user = userService.createUser(
                 registerRequest.getUsername(),
                 registerRequest.getPassword()

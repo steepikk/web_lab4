@@ -24,8 +24,6 @@ public class UserService implements UserDetailsService {
 
     public User createUser(String username, String password) {
         List<User> users = userRepository.findAll();
-        System.out.println("Содержимое таблицы пользователей:");
-        users.forEach(user -> System.out.println(user));
 
         if (userRepository.existsByUsername(username)) {
             throw new RuntimeException("Username already exists");

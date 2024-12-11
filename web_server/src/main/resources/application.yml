@@ -13,7 +13,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 jwt:
-  secret: your-256-bit-secret-key-here
+  secret: QWx3YXlzU2VjdXJlQmFzZTY0RW5jb2RlZAiuH2uiG5gdR4d
   expiration: 86400000
 
 server:
