@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/point_checker
     username: postgres
-    password: Stepan2005
+    password: admin
   jpa:
     hibernate:
       ddl-auto: update

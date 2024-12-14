@@ -35,6 +35,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             logger.info("The extracted token: " + jwt);
 
+
             logger.info("Token validation: " + tokenProvider.validateToken(jwt));
 
             if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
