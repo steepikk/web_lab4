@@ -54,7 +54,6 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest registerRequest) {
         logger.info("The server is creating a user!");
-
         User user = userService.createUser(
                 registerRequest.getUsername(),
                 registerRequest.getPassword()
