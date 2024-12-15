@@ -39,7 +39,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="h-screen bg-pink-100">
       {user.isAuthenticated ? (
         <MainPage 
           username={user.username} 

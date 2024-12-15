@@ -42,17 +42,16 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
       alert('Please enter a valid Y coordinate');
       return;
     }
-  
+
     try {
       const result = await checkPoint(x, Number(y), r, token);
-      setPoints((prevPoints) => [result, ...prevPoints]); 
-      setY(''); 
+      setPoints((prevPoints) => [result, ...prevPoints]);
+      setY('');
     } catch (error) {
       console.error('Failed to check point:', error);
       alert('Failed to check point. Please try again.');
     }
   };
-  
 
   const handlePointClick = async (clickX: number, clickY: number) => {
     try {
@@ -65,12 +64,17 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow">
+    <div
+      className="min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: 'url("/bib.jpg")',
+      }}
+    >
+      <header className="bg-white bg-opacity-80 shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Point Checker</h1>
-            <p className="text-sm text-gray-600">Welcome, {username}!</p>
+            <h1 className="text-2xl font-bold text-pink-900">Point Checker</h1>
+            <p className="text-sm text-pink-600">Welcome, {username}!</p>
           </div>
           <button
             onClick={onLogout}
@@ -82,11 +86,16 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white bg-opacity-80 rounded-md">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          <div className="space-y-4">
-            <Graph points={points} r={r} onPointClick={handlePointClick} />
-          </div>
+        <div className="space-y-4">
+        <div className="space-y-4">
+        <div className="inline-block bg-white bg-opacity-90 p-4 rounded-lg shadow-lg border border-gray-300">
+          <Graph points={points} r={r} onPointClick={handlePointClick} />
+        </div>
+      </div>
+
+      </div>
 
           <div className="space-y-4">
             <CoordinateForm
@@ -100,7 +109,7 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
             <div className="flex justify-center">
               <button
                 onClick={handleSubmit}
-                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+                className="px-4 py-2 text-sm font-medium text-white bg-pink-600 rounded-md hover:bg-pink-700"
               >
                 Check Point
               </button>
@@ -111,8 +120,7 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
         <div className="mt-8 w-full">
           <ResultsTable points={points} />
         </div>
-</main>
-
+      </main>
     </div>
   );
 }
