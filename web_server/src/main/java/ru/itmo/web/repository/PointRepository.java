@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface PointRepository extends JpaRepository<Point, Long> {
     List<Point> findByUserOrderByTimestampDesc(User user);
+    void deleteByUser(User user);
 }

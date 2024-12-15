@@ -4,6 +4,7 @@ import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.security.core.Authentication;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.itmo.web.model.Point;
 import ru.itmo.web.service.PointService;
@@ -42,6 +43,20 @@ public class PointController {
         logger.info("The server returns all user points with the name: " + authentication.getName());
         return pointService.getUserPoints(authentication.getName());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletePoint(@PathVariable Long id, Authentication authentication) {
+        pointService.deletePoint(id, authentication.getName());
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping
+    public ResponseEntity<?> clearPoints(Authentication authentication) {
+        System.out.println("Clear mapping!");
+        pointService.clearPoints(authentication.getName());
+        return ResponseEntity.ok().build();
+    }
+
 
     @Data
     public static class PointRequest {
