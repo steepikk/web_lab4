@@ -82,8 +82,14 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          {/* Перенос графика в левую часть */}
+          <div className="space-y-4">
+            <Graph points={points} r={r} onPointClick={handlePointClick} />
+          </div>
+
+          {/* Перенос формы координат в правую часть */}
+          <div className="space-y-4">
             <CoordinateForm
               x={x}
               y={y}
@@ -100,13 +106,15 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
                 Check Point
               </button>
             </div>
-            <Graph points={points} r={r} onPointClick={handlePointClick} />
-          </div>
-          <div>
-            <ResultsTable points={points} />
           </div>
         </div>
-      </main>
+
+        {/* Таблица на всю ширину страницы */}
+        <div className="mt-8 w-full">
+          <ResultsTable points={points} />
+        </div>
+</main>
+
     </div>
   );
 }

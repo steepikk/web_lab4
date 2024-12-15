@@ -11,7 +11,8 @@ interface CoordinateFormProps {
 
 export function CoordinateForm({ x, y, r, onXChange, onYChange, onRChange }: CoordinateFormProps) {
   const xValues = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
-  
+  const rValues = [0, 1, 2, 3, 4]; 
+
   return (
     <div className="space-y-4 p-4 bg-white rounded-lg shadow">
       <div>
@@ -47,7 +48,7 @@ export function CoordinateForm({ x, y, r, onXChange, onYChange, onRChange }: Coo
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">Radius (R)</label>
         <div className="flex flex-wrap gap-2">
-          {xValues.map((value) => (
+          {rValues.map((value) => (
             <label key={value} className="inline-flex items-center">
               <input
                 type="radio"
