@@ -88,6 +88,7 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
       className="min-h-screen bg-cover bg-center"
       style={{
         backgroundImage: 'url("/bib.jpg")',
+        backgroundAttachment: 'fixed',
       }}
     >
       <header className="bg-white bg-opacity-80 shadow">
