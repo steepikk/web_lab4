@@ -106,7 +106,7 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white bg-opacity-80 rounded-md">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white bg-opacity-80 rounded-md mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div className="space-y-4">
         <div className="space-y-4">

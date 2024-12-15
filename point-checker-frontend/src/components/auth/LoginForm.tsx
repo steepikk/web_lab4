@@ -32,7 +32,7 @@ export function LoginForm({ onLogin, onSwitchToRegister, loading }: LoginFormPro
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="pl-10 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="pl-10 block w-full rounded-md border border-gray-300 shadow-sm focus:border-pink-500 focus:ring-blue-500"
               required
               disabled={loading}
             />
@@ -50,7 +50,7 @@ export function LoginForm({ onLogin, onSwitchToRegister, loading }: LoginFormPro
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="pl-10 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="pl-10 block w-full rounded-md border border-pink-300 shadow-sm focus:border-pink-500 focus:ring-pink-500"
               required
               disabled={loading}
             />
