@@ -42,16 +42,17 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
       alert('Please enter a valid Y coordinate');
       return;
     }
-
+  
     try {
       const result = await checkPoint(x, Number(y), r, token);
-      setPoints([result, ...points]);
-      setY('');
+      setPoints((prevPoints) => [result, ...prevPoints]); 
+      setY(''); 
     } catch (error) {
       console.error('Failed to check point:', error);
       alert('Failed to check point. Please try again.');
     }
   };
+  
 
   const handlePointClick = async (clickX: number, clickY: number) => {
     try {
@@ -83,12 +84,10 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {/* Перенос графика в левую часть */}
           <div className="space-y-4">
             <Graph points={points} r={r} onPointClick={handlePointClick} />
           </div>
 
-          {/* Перенос формы координат в правую часть */}
           <div className="space-y-4">
             <CoordinateForm
               x={x}
@@ -109,7 +108,6 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
           </div>
         </div>
 
-        {/* Таблица на всю ширину страницы */}
         <div className="mt-8 w-full">
           <ResultsTable points={points} />
         </div>
