@@ -104,6 +104,12 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
             Logout
           </button>
         </div>
+        <a
+        href="#bottom"
+        className="p-4 bg-pink-600 text-white rounded-full hover:bg-pink-700 shadow-lg fixed bottom-8 right-8 w-12 h-12 flex justify-center items-center"
+    >
+        <span className="text-lg font-bold">↓</span>
+    </a>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white bg-opacity-80 rounded-md mt-8">
