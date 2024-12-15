@@ -22,7 +22,7 @@ export function ResultsTable({ points }: ResultsTableProps) {
                 {points.map((point, index) => (
                     <tr key={index}>
                         <td className="px-6 py-4 whitespace-nowrap">{point.x.toFixed(2)}</td>
-                        <td className="px-6 py-4 whitespace-nowrap">{point.y}</td>
+                        <td className="px-6 py-4 whitespace-nowrap">{point.y.toFixed(2)}</td>
                         <td className="px-6 py-4 whitespace-nowrap">{point.r}</td>
                         <td className="px-6 py-4 whitespace-nowrap">
                 <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
@@ -31,7 +31,10 @@ export function ResultsTable({ points }: ResultsTableProps) {
                   {point.hit ? 'Hit' : 'Miss'}
                 </span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">{point.timestamp}</td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {new Date(point.timestamp).toLocaleDateString()} {new Date(point.timestamp).toLocaleTimeString()}
+                        </td>
+
                     </tr>
                 ))}
                 </tbody>
