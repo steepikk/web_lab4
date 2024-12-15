@@ -29,7 +29,7 @@ export function LoginPage({ onLogin, onRegister, error, loading }: LoginPageProp
       <div className="relative z-10 bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-pink-900">Информация о студенте</h1>
-          <p className="mt-2 text-pink-600">ФИО: Ваше ФИО</p>
+          <p className="mt-2 text-pink-600">ФИО: Попов С.В. Козырева Э.В.</p>
           <p className="text-pink-600">Группа: P3234</p>
           <p className="text-pink-600">Вариант: 12345</p>
         </div>
