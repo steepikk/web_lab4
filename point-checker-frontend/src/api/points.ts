@@ -24,3 +24,19 @@ export const getUserPoints = async (token: string) => {
   });
   return response.data;
 };
+
+export const deletePoint = async (pointId: number, token: string) => {
+  await axios.delete(`${API_URL}/points/${pointId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const clearPoints = async (token: string) => {
+  await axios.delete(`${API_URL}/points`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

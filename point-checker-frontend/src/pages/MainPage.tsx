@@ -4,7 +4,7 @@ import { CoordinateForm } from '../components/graph/CoordinateForm';
 import { Graph } from '../components/graph/Graph';
 import { ResultsTable } from '../components/results/ResultsTable';
 import { Point } from '../types';
-import { checkPoint, getUserPoints } from '../api/points';
+import { checkPoint, getUserPoints, deletePoint, clearPoints } from '../api/points';
 
 interface MainPageProps {
   username: string;
@@ -63,6 +63,26 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
     }
   };
 
+  const handleDeletePoint = async (pointId: number) => {
+    try {
+      await deletePoint(pointId, token);
+      setPoints(points.filter(point => point.id !== pointId));
+    } catch (error) {
+      console.error('Failed to delete point:', error);
+      alert('Failed to delete point. Please try again.');
+    }
+  };
+  
+  const handleClearAll = async () => {
+    try {
+      await clearPoints(token);
+      setPoints([]);
+    } catch (error) {
+      console.error('Failed to clear points:', error);
+      alert('Failed to clear points. Please try again.');
+    }
+  };
+
   return (
     <div
       className="min-h-screen bg-cover bg-center"
@@ -118,7 +138,11 @@ export function MainPage({ username, token, onLogout }: MainPageProps) {
         </div>
 
         <div className="mt-8 w-full">
-          <ResultsTable points={points} />
+          <ResultsTable 
+          points={points}
+          onDeletePoint={handleDeletePoint}
+          onClearAll={handleClearAll} 
+          />
         </div>
       </main>
     </div>
