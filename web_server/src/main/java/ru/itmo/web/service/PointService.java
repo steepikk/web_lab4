@@ -69,11 +69,9 @@ public class PointService {
         if (x <= 0 && x >= -r/2 && y >= 0 && y <= r) {
             return true;
         }
-
         if (x <= 0 && y <= 0 && y >= -x - r) {
             return true;
         }
-
         if (x >= 0 && y <= 0 && (x*x + y*y) <= (r*r/4)) {
             return true;
         }
